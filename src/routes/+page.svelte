@@ -64,6 +64,4 @@
 
 <style lang="postcss">
   @reference "tailwindcss";
-  :root {
-  }
 </style>
