@@ -9,147 +9,61 @@
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
     greetMsg = await invoke("greet", { name });
   }
+
+  const dummyChecklists = [
+    { name: "Checklist #1", entryCount: 54, id: 0 },
+    { name: "Checklist #2", entryCount: 2, id: 1 },
+    { name: "Checklist #3", entryCount: 4, id: 2 },
+    // { name: "Checklist #4", entryCount: 48653, id: 3 },
+    // We consider there's a getLast3Checklists command...
+  ];
 </script>
 
-<main class="container">
-  <h1>Welcome to Tauri + Svelte</h1>
+<main class="m-4 p-4 dark:bg-zinc-800 bg-zinc-100 rounded-2xl">
+  <h1 class="text-center text-black dark:text-white font-black text-5xl m-1">
+    Sift
+  </h1>
 
-  <div class="row">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo vite" alt="Vite Logo" />
-    </a>
-    <a href="https://tauri.app" target="_blank">
-      <img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
-    </a>
-    <a href="https://kit.svelte.dev" target="_blank">
-      <img src="/svelte.svg" class="logo svelte-kit" alt="SvelteKit Logo" />
+  <h2 class="text-center text-zinc-900 dark:text-zinc-100 text-2xl m-2">
+    Last checklists
+  </h2>
+
+  <div class="grid grid-cols-1 gap-4">
+    {#each dummyChecklists as cl}
+      <a href="/checklist/{cl.id}">
+        <div
+          class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-zinc-900 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
+        >
+          <img class="size-12 shrink-0" src="/tauri.svg" alt="Tauri Logo" />
+          <div>
+            <div class="text-xl font-medium text-black dark:text-white">
+              {cl.name}
+            </div>
+            <p class="text-gray-500 dark:text-gray-400">
+              {cl.entryCount} entries
+            </p>
+          </div>
+        </div>
+      </a>
+    {/each}
+    <a href="/checklists">
+      <div
+        class="mx-auto max-w-sm gap-x-4 rounded-xl bg-zinc-100 p-4 shadow-lg outline outline-black/5 dark:bg-zinc-900 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
+      >
+        <div>
+          <div
+            class="text-xl font-medium text-black dark:text-white text-center"
+          >
+            All checklists
+          </div>
+        </div>
+      </div>
     </a>
   </div>
-  <p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>
-
-  <form class="row" onsubmit={greet}>
-    <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
-    <button type="submit">Greet</button>
-  </form>
-  <p>{greetMsg}</p>
 </main>
 
-<style>
-  .logo.vite:hover {
-    filter: drop-shadow(0 0 2em #747bff);
-  }
-
-  .logo.svelte-kit:hover {
-    filter: drop-shadow(0 0 2em #ff3e00);
-  }
-
+<style lang="postcss">
+  @reference "tailwindcss";
   :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-
-    color: #0f0f0f;
-    background-color: #f6f6f6;
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  .container {
-    margin: 0;
-    padding-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: 0.75s;
-  }
-
-  .logo.tauri:hover {
-    filter: drop-shadow(0 0 2em #24c8db);
-  }
-
-  .row {
-    display: flex;
-    justify-content: center;
-  }
-
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-
-  a:hover {
-    color: #535bf2;
-  }
-
-  h1 {
-    text-align: center;
-  }
-
-  input,
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    color: #0f0f0f;
-    background-color: #ffffff;
-    transition: border-color 0.25s;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  button:hover {
-    border-color: #396cd8;
-  }
-  button:active {
-    border-color: #396cd8;
-    background-color: #e8e8e8;
-  }
-
-  input,
-  button {
-    outline: none;
-  }
-
-  #greet-input {
-    margin-right: 5px;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color: #f6f6f6;
-      background-color: #2f2f2f;
-    }
-
-    a:hover {
-      color: #24c8db;
-    }
-
-    input,
-    button {
-      color: #ffffff;
-      background-color: #0f0f0f98;
-    }
-    button:active {
-      background-color: #0f0f0f69;
-    }
   }
 </style>
