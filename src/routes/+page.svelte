@@ -1,6 +1,8 @@
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/core";
+  import ChecklistList from "./ChecklistList.svelte";
 
+  // KEEPING THIS PART TO REMEMBER SYNTAX (i am dumb)
   let name = $state("");
   let greetMsg = $state("");
 
@@ -9,6 +11,7 @@
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
     greetMsg = await invoke("greet", { name });
   }
+  // -------------------------------
 
   const dummyChecklists = [
     { name: "Checklist #1", entryCount: 54, id: 0 },
@@ -29,23 +32,7 @@
   </h2>
 
   <div class="grid grid-cols-1 gap-4">
-    {#each dummyChecklists as cl}
-      <a href="/checklist/{cl.id}">
-        <div
-          class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-zinc-900 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
-        >
-          <img class="size-12 shrink-0" src="/tauri.svg" alt="Tauri Logo" />
-          <div>
-            <div class="text-xl font-medium text-black dark:text-white">
-              {cl.name}
-            </div>
-            <p class="text-gray-500 dark:text-gray-400">
-              {cl.entryCount} entries
-            </p>
-          </div>
-        </div>
-      </a>
-    {/each}
+    <ChecklistList checklists={dummyChecklists} />
     <a href="/checklists">
       <div
         class="mx-auto max-w-sm gap-x-4 rounded-xl bg-zinc-100 p-4 shadow-lg outline outline-black/5 dark:bg-zinc-900 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
