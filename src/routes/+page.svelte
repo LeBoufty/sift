@@ -1,6 +1,6 @@
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/core";
-  import ChecklistList from "./ChecklistList.svelte";
+  import ChecklistList from "../props/ChecklistList.svelte";
 
   // KEEPING THIS PART TO REMEMBER SYNTAX (i am dumb)
   let name = $state("");

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ChecklistInfo } from "../../types/checklists";
-  import ChecklistList from "../ChecklistList.svelte";
+  import ChecklistList from "../../props/ChecklistList.svelte";
   const dummyChecklists: ChecklistInfo[] = [
     { name: "Checklist #1", entryCount: 54, id: 0 },
     { name: "Checklist #2", entryCount: 2, id: 1 },
