@@ -30,7 +30,3 @@
 
   <ChecklistList checklists={dummyChecklists} />
 </main>
-
-<style lang="postcss">
-  @reference "tailwindcss";
-</style>
