@@ -1,6 +1,6 @@
 <script>
   let { children } = $props();
-  import "../../static/style.css";
+  import "/src/style.css";
 </script>
 
 {@render children()}

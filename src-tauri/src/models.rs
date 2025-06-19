@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 // Used to construct the form in the frontend
 
 #[derive(Serialize, Deserialize)]
+#[serde(tag = "type", content = "value")]
 /** The rule by which the score is calculated */
 pub enum ScoringRule {
     /** Curve goes from 0 to 100 at cutoff point */
@@ -19,6 +20,7 @@ pub enum ScoringRule {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(tag = "type", content = "value")]
 /** The type of a check in a checklist */
 pub enum CheckType {
     /** Simple checkbox */
