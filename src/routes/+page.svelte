@@ -3,6 +3,12 @@
   import ChecklistList from "../props/ChecklistList.svelte";
   import AllChecklistsButton from "../props/AllChecklistsButton.svelte";
   import CreateChecklistButton from "../props/CreateChecklistButton.svelte";
+  import { push_to_history } from "./history";
+
+  push_to_history({
+    href: "/",
+    name: "Home",
+  });
 
   // KEEPING THIS PART TO REMEMBER SYNTAX (i am dumb)
   let name = $state("");
@@ -25,9 +31,10 @@
 </script>
 
 <main class="m-4 p-4 dark:bg-zinc-800 bg-zinc-100 rounded-2xl">
-  <h1 class="text-center text-black dark:text-white font-black text-5xl m-1">
+  <!-- <h1 class="text-center text-black dark:text-white font-black text-5xl m-1">
     Sift
-  </h1>
+  </h1> -->
+  <img class="shrink-0 align-middle" src="/full_logo.png" alt="Sift Logo" />
 
   <h2 class="text-center text-zinc-900 dark:text-zinc-100 text-2xl m-2">
     Last checklists
