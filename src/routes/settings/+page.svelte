@@ -1,5 +1,6 @@
 <script lang="ts">
   import BackAndHistory from "../../props/BackAndHistory.svelte";
+  import Title from "../../props/Title.svelte";
   import { push_to_history } from "../history";
   import { SETTINGS, GRADING_FORMATS } from "../settings";
 
@@ -30,9 +31,7 @@
 
 <main class="m-4 p-4 dark:bg-zinc-800 bg-zinc-100 rounded-2xl">
   <BackAndHistory />
-  <h1 class="text-center text-black dark:text-white font-black text-4xl m-8">
-    Settings
-  </h1>
+  <Title text="Settings" />
   <div class="justify-center grid grid-cols-1">
     <button
       type="button"

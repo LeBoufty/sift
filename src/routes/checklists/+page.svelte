@@ -4,6 +4,7 @@
   import CreateChecklistButton from "../../props/CreateChecklistButton.svelte";
   import { push_to_history } from "../history";
   import BackAndHistory from "../../props/BackAndHistory.svelte";
+  import Title from "../../props/Title.svelte";
 
   push_to_history({
     name: "Your checklists",
@@ -23,9 +24,7 @@
 
 <main class="m-4 p-4 dark:bg-zinc-800 bg-zinc-100 rounded-2xl">
   <BackAndHistory />
-  <h1 class="text-center text-black dark:text-white font-black text-4xl m-8">
-    Your checklists
-  </h1>
+  <Title text="Your checklists" />
 
   <CreateChecklistButton />
 
