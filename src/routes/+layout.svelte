@@ -5,7 +5,7 @@
   import { SETTINGS } from "./settings";
 </script>
 
-<div class={SETTINGS.theme} data-sveltekit-preload-data="hover">
+<div class={$SETTINGS.theme} data-sveltekit-preload-data="hover">
   {@render children()}
   <Footer />
 </div>
