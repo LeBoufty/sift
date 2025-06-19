@@ -14,4 +14,4 @@
   const history = last.map((l) => l.name).join(" > ");
 </script>
 
-<div class="flex-nowrap text-zinc-500">{history}</div>
+<div class="flex-nowrap text-zinc-500 dark:text-zinc-400">{history}</div>
