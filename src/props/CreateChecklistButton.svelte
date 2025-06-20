@@ -1,4 +1,12 @@
-<a href="/create_checklist">
+<script lang="ts">
+  import { default_checklist } from "../types/checklists";
+
+  const reset_checklist = () => {
+    localStorage.setItem("checklist", JSON.stringify(default_checklist()));
+  };
+</script>
+
+<a href="/create_checklist" on:click={reset_checklist}>
   <div
     class="m-8 mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-zinc-100 p-4 shadow-lg outline outline-black/5 dark:bg-zinc-900 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
   >

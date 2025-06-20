@@ -43,6 +43,7 @@ export interface Check {
 }
 
 export interface ChecklistCategory {
+  id: number;
   name: string;
   checks: Check[];
 }
@@ -51,4 +52,34 @@ export interface Checklist {
   id: number;
   name: string;
   categories: ChecklistCategory[];
+}
+
+export function default_check(n?: number): Check {
+  return {
+    name: `Check #${n ?? 1}`,
+    ctype: {
+      type: "Stars",
+    },
+    weight: 1
+  }
+}
+
+export function default_category(id?: number): ChecklistCategory {
+  return {
+    id: id ?? 0,
+    name: `Category #${id ?? 0 + 1}`,
+    checks: [
+      default_check()
+    ],
+  }
+}
+
+export function default_checklist(id?: number): Checklist {
+  return {
+    id: id ?? 0,
+    name: `Checklist #${id ?? 0 + 1}`,
+    categories: [
+      default_category()
+    ]
+  }
 }
